@@ -1,18 +1,16 @@
 import express, { Request, Response }  from "express";
-import { getAllQuestion } from "../controllers/question.controller";
+import { addQuestion, getAllQuestion, getAnswerOnQuestion, getOneQuestion } from "../controllers/question.controller";
 
 
 const questionRouter = express.Router();
 
 questionRouter.get("/",getAllQuestion)
 
-// questionRouter.get("/question/:id",getOneQuestion   )
+questionRouter.get("/:id",getOneQuestion)
 
-// questionRouter.post("/question/:id",addQuestion )
+questionRouter.get("/:id/answer",getAnswerOnQuestion)
 
-
-
-
+questionRouter.post("",addQuestion)
 
 
 export default questionRouter;
